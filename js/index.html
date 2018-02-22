@@ -71,11 +71,13 @@
 <p>这种方式运行部分JavaScript代码没有问题，但由于浏览器的安全限制，以<code>file://</code>开头的地址无法执行如联网等JavaScript代码，最终，你还是需要架设一个Web服务器，然后以<code>http://</code>开头的地址来正常执行所有JavaScript代码。</p>
 <p>不过，开始学习阶段，你无须关心如何搭建开发环境的问题，我们提供在页面输入JavaScript代码并直接运行的功能，让你专注于JavaScript的学习。</p>
 <p>试试直接点击“Run”按钮执行下面的JavaScript代码：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 // 以//开头直到行末的是注释，将被浏览器忽略
 // 第一个JavaScript代码:
 ----
 alert('Hello, world');
+</code>
 </pre>
 <p>浏览器将弹出一个对话框，显示“Hello, world”。你也可以修改两个单引号中间的内容，再试着运行。</p>
 <h4 id="-">调试</h4>
@@ -139,11 +141,13 @@ alert('hello'); // 这也是注释
 </code></pre>
 <p>练习：</p>
 <p>分别利用行注释和块注释把下面的语句注释掉，使它不再执行：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 // 请注释掉下面的语句:
 ----
 alert('我不想执行');
 alert('我也不想执行');
+</code>
 </pre>
 <h4 id="-">大小写</h4>
 <p>请注意，JavaScript严格区分大小写，如果弄错了大小写，程序将报错或者运行不正常。</p>
@@ -298,13 +302,15 @@ x = x + 2;
 </code></pre>
 <p>这是一个字符串，不支持strict模式的浏览器会把它当做一个字符串语句执行，支持strict模式的浏览器将开启strict模式运行JavaScript。</p>
 <p>来测试一下你的浏览器是否能支持strict模式：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 // 如果浏览器支持strict模式，
 // 下面的代码将报ReferenceError错误:
 ----
 abc = 'Hello, world';
 alert(abc);
+</code>
 </pre>
 <p>运行代码，如果浏览器报错，请修复后再运行。如果浏览器不报错，说明你的浏览器太古老了，需要尽快升级。</p>
 <p>不用<code>var</code>申明的变量会被视为全局变量，为了避免这一缺陷，所有的JavaScript代码都应该使用strict模式。我们在后面编写的JavaScript代码将全部采用strict模式。</p>
@@ -328,12 +334,14 @@ alert(abc);
 字符串`;
 </code></pre>
 <p>练习：测试你的浏览器是否支持ES6标准，如果不支持，请把多行字符串用<code>\n</code>重新表示出来：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 // 如果浏览器不支持ES6，将报SyntaxError错误:
 ----
 alert(`多行
 字符串
 测试`);
+</code>
 </pre>
 <p>字符串常见的操作如下：</p>
 <pre><code>var s = 'Hello, world!';
@@ -498,22 +506,26 @@ arr.join('-'); // 'A-B-C-1-2-3'
 </code></pre>
 <p>上述<code>Array</code>包含3个元素，其中头两个元素本身也是<code>Array</code>。</p>
 <p>练习：如何通过索引取到<code>500</code>这个值：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 var arr = [[1, 2, 3], [400, 500, 600], '-'];
 ----
 var x = ??;
 ----
 alert(x); // x应该为500
+</code>
 </pre>
 <h4 id="-">小结</h4>
 <p><code>Array</code>提供了一种顺序存储一组元素的功能，并可以按索引来读写。</p>
 <p>练习：在新生欢迎会上，你已经拿到了新同学的名单，请排序后显示：<code>欢迎XXX，XXX，XXX和XXX同学！</code>：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 var arr = ['小明', '小红', '大军', '阿黄'];
 ----
 alert('???');
+</code>
 </pre>
 <h2>对象</h2>
 <p>JavaScript的对象是一种无序的集合数据类型，它由若干键值对组成。</p>
@@ -648,7 +660,8 @@ if (age &gt;= 18) {
 <p>但是我们通常把<code>else if</code>连写在一起，来增加可读性。这里的<code>else</code>略掉了<code>{}</code>是没有问题的，因为它只包含一个<code>if</code>语句。注意最后一个单独的<code>else</code>不要略掉<code>{}</code>。</p>
 <p><em>请注意</em>，<code>if...else...</code>语句的执行特点是二选一，在多个<code>if...else...</code>语句中，如果某个条件成立，则后续就不再继续判断了。</p>
 <p>试解释为什么下面的代码显示的是<code>teenager</code>：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 var age = 20;
 ----
@@ -659,6 +672,7 @@ if (age &gt;= 6) {
 } else {
     alert('kid');
 }
+</code>
 </pre>
 <p>由于<code>age</code>的值为<code>20</code>，它实际上同时满足条件<code>age &gt;= 6</code>和<code>age &gt;= 18</code>，这说明条件判断的顺序非常重要。请修复后让其显示<code>adult</code>。</p>
 <p>如果<code>if</code>的条件判断语句结果不是<code>true</code>或<code>false</code>怎么办？例如：</p>
@@ -678,7 +692,8 @@ if (s.length) { // 条件计算结果为3
 <li>高于32：严重肥胖</li>
 </ul>
 <p>用<code>if...else...</code>判断并显示结果：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 
 var height = parseFloat(prompt('请输入身高(m):'));
@@ -686,6 +701,7 @@ var weight = parseFloat(prompt('请输入体重(kg):'));
 ----
 var bmi = ???;
 if ...
+</code>
 </pre>
 <h2>循环</h2>
 <h4 id="-">循环</h4>
@@ -711,7 +727,8 @@ x; // 50005000
 </ul>
 <h4 id="-">练习</h4>
 <p>利用<code>for</code>循环计算<code>1 * 2 * 3 * ... * 10</code>的结果：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 ----
 var x = ?;
@@ -724,6 +741,7 @@ if (x === 3628800) {
 else {
     alert('计算错误');
 }
+</code>
 </pre>
 <p><code>for</code>循环最常用的地方是利用索引来遍历数组：</p>
 <pre><code>var arr = ['Apple', 'Google', 'Microsoft'];
@@ -796,10 +814,12 @@ n; // 100
 <p>用<code>do { ... } while()</code>循环要小心，循环体会至少执行1次，而<code>for</code>和<code>while</code>循环则可能一次都不执行。</p>
 <h4 id="-">练习</h4>
 <p>请利用循环遍历数组中的每个名字，并显示<code>Hello, xxx!</code>：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 var arr = ['Bart', 'Lisa', 'Adam'];
 ----
+</code>
 </pre>
 <p>请尝试<code>for</code>循环和<code>while</code>循环，并以正序、倒序两种方式遍历。</p>
 <h4 id="-">小结</h4>
@@ -809,13 +829,15 @@ var arr = ['Bart', 'Lisa', 'Adam'];
 <p>JavaScript的默认对象表示方式<code>{}</code>可以视为其他语言中的<code>Map</code>或<code>Dictionary</code>的数据结构，即一组键值对。</p>
 <p>但是JavaScript的对象有个小问题，就是键必须是字符串。但实际上Number或者其他数据类型作为键也是非常合理的。</p>
 <p>为了解决这个问题，最新的ES6规范引入了新的数据类型<code>Map</code>。要测试你的浏览器是否支持ES6规范，请执行以下代码，如果浏览器报ReferenceError错误，那么你需要换一个支持ES6的浏览器：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 var m = new Map();
 var s = new Set();
 alert('你的浏览器支持Map和Set！');
 ----
 // 直接运行测试
+</code>
 </pre>
 <h4 id="map">Map</h4>
 <p><code>Map</code>是一组键值对的结构，具有极快的查找速度。</p>
@@ -874,7 +896,8 @@ s; // Set {1, 2}
 <p>遍历<code>Array</code>可以采用下标循环，遍历<code>Map</code>和<code>Set</code>就无法使用下标。为了统一集合类型，ES6标准引入了新的<code>iterable</code>类型，<code>Array</code>、<code>Map</code>和<code>Set</code>都属于<code>iterable</code>类型。</p>
 <p>具有<code>iterable</code>类型的集合可以通过新的<code>for ... of</code>循环来遍历。</p>
 <p><code>for ... of</code>循环是ES6引入的新的语法，请测试你的浏览器是否支持：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 var a = [1, 2, 3];
 for (var x of a) {
@@ -882,6 +905,7 @@ for (var x of a) {
 alert('你的浏览器支持for ... of');
 ----
 // 请直接运行测试
+</code>
 </pre>
 <p>用<code>for ... of</code>循环遍历集合，用法如下：</p>
 <pre><code>var a = ['A', 'B', 'C'];
@@ -1102,7 +1126,8 @@ foo(1);
 <p>rest参数只能写在最后，前面用<code>...</code>标识，从运行结果可知，传入的参数先绑定<code>a</code>、<code>b</code>，多余的参数以数组形式交给变量<code>rest</code>，所以，不再需要<code>arguments</code>我们就获取了全部参数。</p>
 <p>如果传入的参数连正常定义的参数都没填满，也不要紧，rest参数会接收一个空数组（注意不是<code>undefined</code>）。</p>
 <p>因为rest参数是ES6新标准，所以你需要测试一下浏览器是否支持。请用rest参数编写一个<code>sum()</code>函数，接收任意个参数并返回它们的和：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 ----
 function sum(...rest) {
@@ -1125,6 +1150,7 @@ if (sum() !== 0) {
 } else {
     alert('测试通过!');
 }
+</code>
 </pre>
 <h4 id="-return-">小心你的return语句</h4>
 <p>前面我们讲到了JavaScript引擎有一个在行末自动添加分号的机制，这可能让你栽到return语句的一个大坑：</p>
@@ -1161,7 +1187,8 @@ foo(); // undefined
 <li>r: 表示圆的半径；</li>
 <li>pi: 表示π的值，如果不传，则默认3.14</li>
 </ul>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 
 function area_of_circle(r, pi) {
@@ -1175,9 +1202,11 @@ if (area_of_circle(2) === 12.56 &amp;&amp; area_of_circle(2, 3.1416) === 12.5664
 } else {
     alert('测试失败');
 }
+</code>
 </pre>
 <p>Max是一个JavaScript新手，他写了一个<code>max()</code>函数，返回两个数中较大的那个：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 
 function max(a, b) {
@@ -1192,6 +1221,7 @@ function max(a, b) {
 ----
 }
 alert(max(15, 20));
+</code>
 </pre>
 <p>但是Max抱怨他的浏览器出问题了，无论传入什么数，<code>max()</code>函数总是返回<code>undefined</code>。请帮他指出问题并修复。</p>
 <h2>变量作用域</h2>
@@ -1297,7 +1327,8 @@ foo(); // 直接调用foo()
 window.foo(); // 通过window.foo()调用
 </code></pre>
 <p>进一步大胆地猜测，我们每次直接调用的<code>alert()</code>函数其实也是<code>window</code>的一个变量：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 
 window.alert('调用window.alert()');
@@ -1311,6 +1342,7 @@ alert('无法用alert()显示了!');
 // 恢复alert:
 window.alert = old_alert;
 alert('又可以用alert()了!');
+</code>
 </pre>
 <p>这说明JavaScript实际上只有一个全局作用域。任何变量（函数也视为变量），如果没有在当前函数作用域中找到，就会继续往上查找，最后如果在全局作用域中也没有找到，则报ReferenceError错误。</p>
 <h4 id="-">名字空间</h4>
@@ -1574,7 +1606,8 @@ arr.reduce(function (x, y) {
 }); // 25
 </code></pre>
 <p>练习：利用<code>reduce()</code>求积：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 
 function product(arr) {
@@ -1590,6 +1623,7 @@ if (product([1, 2, 3, 4]) === 24 &amp;&amp; product([0, 1, 2]) === 0 &amp;&amp; 
 else {
     alert('测试失败!');
 }
+</code>
 </pre>
 <p>要把<code>[1, 3, 5, 7, 9]</code>变换成整数13579，<code>reduce()</code>也能派上用场：</p>
 <pre><code>var arr = [1, 3, 5, 7, 9];
@@ -1599,7 +1633,8 @@ arr.reduce(function (x, y) {
 </code></pre>
 <p>如果我们继续改进这个例子，想办法把一个字符串<code>13579</code>先变成<code>Array</code>——<code>[1, 3, 5, 7, 9]</code>，再利用<code>reduce()</code>就可以写出一个把字符串转换为Number的函数。</p>
 <p>练习：不要使用JavaScript内置的<code>parseInt()</code>函数，利用map和reduce操作实现一个<code>string2int()</code>函数：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 
 function string2int(s) {
@@ -1621,10 +1656,12 @@ if (string2int('0') === 0 &amp;&amp; string2int('12345') === 12345 &amp;&amp; st
 else {
     alert('测试失败!');
 }
+</code>
 </pre>
 <h4 id="-">练习</h4>
 <p>请把用户输入的不规范的英文名字，变为首字母大写，其他小写的规范名字。输入：<code>['adam', 'LISA', 'barT']</code>，输出：<code>['Adam', 'Lisa', 'Bart']</code>。</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 
 function normalize(arr) {
@@ -1640,9 +1677,11 @@ if (normalize(['adam', 'LISA', 'barT']).toString() === ['Adam', 'Lisa', 'Bart'].
 else {
     alert('测试失败!');
 }
+</code>
 </pre>
 <p>小明希望利用<code>map()</code>把字符串变成整数，他写的代码很简洁：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 
 var arr = ['1', '2', '3'];
@@ -1651,6 +1690,7 @@ var r;
 r = arr.map(parseInt);
 ----
 alert('[' + r[0] + ', ' + r[1] + ', ' + r[2] + ']');
+</code>
 </pre>
 <p>结果竟然是<code>[1, NaN, NaN]</code>，小明百思不得其解，请帮他找到原因并修正代码。</p>
 <p>提示：参考<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">Array.prototype.map()的文档</a>。</p>
@@ -1697,7 +1737,8 @@ r; // ['A', 'B', 'C']
 <p>可见用<code>filter()</code>这个高阶函数，关键在于正确实现一个“筛选”函数。</p>
 <h4 id="-">练习</h4>
 <p>请尝试用<code>filter()</code>筛选出素数：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 
 function get_primes(arr) {
@@ -1720,6 +1761,7 @@ if (r.toString() === [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53
 } else {
     alert('测试失败: ' + r.toString());
 }
+</code>
 </pre>
 <h3>sort</h3>
 <h4 id="-">排序算法</h4>
@@ -1931,7 +1973,8 @@ pow3(7); // 343
 <h4 id="-">脑洞大开</h4>
 <p>很久很久以前，有个叫阿隆佐·邱奇的帅哥，发现只需要用函数，就可以用计算机实现运算，而不需要<code>0</code>、<code>1</code>、<code>2</code>、<code>3</code>这些数字和<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>这些符号。</p>
 <p>JavaScript支持函数，所以可以用JavaScript用函数来写这些计算。来试试：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 
 // 定义数字0:
@@ -1981,6 +2024,7 @@ var five = add(two, three);
 }))();
 
 // 继续接着玩一会...
+</code>
 </pre>
 <h2>箭头函数</h2>
 <p>ES6标准新增了一种新的函数：Arraw Function（箭头函数）。</p>
@@ -1993,12 +2037,14 @@ var five = add(two, three);
 }
 </code></pre>
 <p>在继续学习箭头函数之前，请测试你的浏览器是否支持ES6的Array Function：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 ----
 var fn = x =&gt; x * x;
 ----
 alert('你的浏览器支持ES6的Array Function!');
+</code>
 </pre>
 <p>箭头函数相当于匿名函数，并且简化了函数定义。箭头函数有两种格式，一种像上面的，只包含一个表达式，连<code>{ ... }</code>和<code>return</code>都省略掉了。还有一种可以包含多条语句，这时候就不能省略<code>{ ... }</code>和<code>return</code>：</p>
 <pre><code>x =&gt; {
@@ -2220,7 +2266,8 @@ function next_id() {
 </code></pre>
 <p>由于函数无法保存状态，故需要一个全局变量<code>current_id</code>来保存数字。</p>
 <p>不用闭包，试用generator改写：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 function* next_id() {
 ----
@@ -2242,6 +2289,7 @@ for (x = 1; x &lt; 100; x ++) {
 if (pass) {
     alert('测试通过!');
 }
+</code>
 </pre>
 <h1>标准对象</h1>
 <p>在JavaScript的世界里，一切都是对象。</p>
@@ -2367,13 +2415,15 @@ d.toUTCString(); // 'Wed, 24 Jun 2015 11:49:22 GMT'，UTC时间，与本地时�
 </code></pre>
 <h4 id="-">练习</h4>
 <p>小明为了和女友庆祝情人节，特意制作了网页，并提前预定了法式餐厅。小明打算用JavaScript给女友一个惊喜留言：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 ----
 var today = new Date();
 if (today.getMonth() === 2 &amp;&amp; today.getDate() === 14) {
     alert('亲爱的，我预定了晚餐，晚上6点在餐厅见！');
 }
+</code>
 </pre>
 <p>结果女友并未出现。小明非常郁闷，请你帮忙分析他的JavaScript代码有何问题。</p>
 <p><img src="files/attachments/00143514905461536b6ab3d25474b02b6648d4608f10cd7000.png" alt="注孤生"></p>
@@ -2523,7 +2573,8 @@ re.exec(s); // null，直到结束仍没有匹配到
 <p>正则表达式非常强大，要在短短的一节里讲完是不可能的。要讲清楚正则的所有内容，可以写一本厚厚的书了。如果你经常遇到正则表达式的问题，你可能需要一本正则表达式的参考书。</p>
 <h4 id="-">练习</h4>
 <p>请尝试写一个验证Email地址的正则表达式。版本一应该可以验证出类似的Email：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 ----
 var re = /^$/;
@@ -2551,6 +2602,7 @@ for (i = 0; i &lt; should_fail.length; i++) {
 if (success) {
     alert('测试通过!');
 }
+</code>
 </pre>
 <p>版本二可以验证并提取出带名字的Email地址：</p>
 <pre class="x-javascript">
@@ -5664,7 +5716,8 @@ function animates() {
 <p>此外，jQuery也没有实现对<code>background-color</code>的动画效果，用<code>animate()</code>设置<code>background-color</code>也没有效果。这种情况下可以使用CSS3的<code>transition</code>实现动画效果。</p>
 <h4 id="-">练习</h4>
 <p>在执行删除操作时，给用户显示一个动画比直接调用<code>remove()</code>要更好。请在表格删除一行的时候添加一个淡出的动画效果：</p>
-<pre class="x-javascript">
+<pre>
+<code class="x-javascript">
 'use strict';
 
 function deleteFirstTR() {
@@ -5674,6 +5727,7 @@ function deleteFirstTR() {
 }
 
 deleteFirstTR();
+</code>
 </pre>
 <script>
 $(function () {

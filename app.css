@@ -1,6 +1,9 @@
 html, body {
     font-size: 14px;
 }
+* {
+    box-sizing: border-box;
+}
 h1, h2, h3, h4 {
     margin: 0;
     padding: 20px 0;
@@ -9,7 +12,7 @@ h1 {
     padding-left: 10px;
     background-color: #F2F2F2;
 }
-img {
+img, video {
     max-width: 100%;
 }
 .top {
@@ -30,6 +33,12 @@ code {
     margin: 0 5px;
     padding: 5px;
     background-color: #F2F2F2;
+}
+p code {
+    word-wrap: break-word;
+}
+pre {
+    overflow-x: auto;
 }
 pre code {
     display: block;
@@ -72,7 +81,7 @@ pre code {
     }
     .container {
         width: 100%;
-        padding-top: 50px;
+        padding: 50px 10px 30px;
     }
     .nav-list {
         max-width: 100%;

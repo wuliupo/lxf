@@ -17,6 +17,6 @@
     }
     var navHead = document.querySelector('.nav-list h2');
     navHead.addEventListener('click', function () {
-        dom.style.height = dom.style.height ? '' : '30px';
+        dom.style.height = dom.style.height ? '' : '50px';
     });
 })();
