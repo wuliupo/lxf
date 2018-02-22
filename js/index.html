@@ -5,6 +5,7 @@
 <title>JavaScript</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <link rel="stylesheet" href="../app.css">
+<script src="//code.jquery.com/jquery.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -3612,14 +3613,14 @@ input.value = 'test@example.com'; // 文本框的内容已更新
 <p>最后，JavaScript可以以两种方式来处理表单的提交（AJAX方式在后面章节介绍）。</p>
 <p>方式一是通过<code>&lt;form&gt;</code>元素的<code>submit()</code>方法提交一个表单，例如，响应一个<code>&lt;button&gt;</code>的<code>click</code>事件，在JavaScript代码中提交表单：</p>
 <pre><code>&lt;!-- HTML --&gt;
-&lt;form id="test-form"&gt;
+&lt;form id="test-form1"&gt;
     &lt;input type="text" name="test"&gt;
     &lt;button type="button" onclick="doSubmitForm()"&gt;Submit&lt;/button&gt;
 &lt;/form&gt;
 
 &lt;script&gt;
 function doSubmitForm() {
-    var form = document.getElementById('test-form');
+    var form = document.getElementById('test-form1');
     // 可以在此修改form的input...
     // 提交form:
     form.submit();
@@ -3628,14 +3629,14 @@ function doSubmitForm() {
 </code></pre>
 <p>这种方式的缺点是扰乱了浏览器对form的正常提交。浏览器默认点击<code>&lt;button type="submit"&gt;</code>时提交表单，或者用户在最后一个输入框按回车键。因此，第二种方式是响应<code>&lt;form&gt;</code>本身的<code>onsubmit</code>事件，在提交form时作修改：</p>
 <pre><code>&lt;!-- HTML --&gt;
-&lt;form id="test-form" onsubmit="return checkForm()"&gt;
+&lt;form id="test-form2" onsubmit="return checkForm()"&gt;
     &lt;input type="text" name="test"&gt;
     &lt;button type="submit"&gt;Submit&lt;/button&gt;
 &lt;/form&gt;
 
 &lt;script&gt;
 function checkForm() {
-    var form = document.getElementById('test-form');
+    var form = document.getElementById('test-form2');
     // 可以在此修改form的input...
     // 继续下一步:
     return true;
@@ -4920,7 +4921,7 @@ var sub = langs.slice(2, 4); // Swift, Scheme, 参数和数组的slice()方法�
 </code></pre>
 <h4 id="-">练习</h4>
 <p>对于下面的表单：</p>
-<pre><code>&lt;form id="test-form" action="#0" onsubmit="return false;"&gt;
+<pre><code>&lt;form id="test-form3" action="#0" onsubmit="return false;"&gt;
     &lt;p&gt;&lt;label&gt;Name: &lt;input name="name"&gt;&lt;/label&gt;&lt;/p&gt;
     &lt;p&gt;&lt;label&gt;Email: &lt;input name="email"&gt;&lt;/label&gt;&lt;/p&gt;
     &lt;p&gt;&lt;label&gt;Password: &lt;input name="password" type="password"&gt;&lt;/label&gt;&lt;/p&gt;
@@ -4949,7 +4950,7 @@ else {
     alert('json变量不是string!');
 }
 </pre>
-<form id="test-form" action="#0" onsubmit="return false;">
+<form id="test-form4" action="#0" onsubmit="return false;">
     <p><label>Name: <input name="name"></label></p>
     <p><label>Email: <input name="email"></label></p>
     <p><label>Password: <input name="password" type="password"></label></p>
@@ -5456,7 +5457,7 @@ $(function () {
 <h4 id="-">练习</h4>
 <p>对如下的Form表单：</p>
 <pre><code>&lt;!-- HTML结构 --&gt;
-&lt;form id="test-form" action="test"&gt;
+&lt;form id="test-form5" action="test"&gt;
     &lt;legend&gt;请选择想要学习的编程语言：&lt;/legend&gt;
     &lt;fieldset&gt;
         &lt;p&gt;&lt;label class="selectAll"&gt;&lt;input type="checkbox"&gt; &lt;span class="selectAll"&gt;全选&lt;/span&gt;&lt;span class="deselectAll"&gt;全不选&lt;/span&gt;&lt;/label&gt; &lt;a href="#0" class="invertSelect"&gt;反选&lt;/a&gt;&lt;/p&gt;
@@ -5479,7 +5480,7 @@ $(function () {
 'use strict';
 
 var
-    form = $('#test-form'),
+    form = $('#test-form5'),
     langs = form.find('[name=lang]'),
     selectAll = form.find('label.selectAll :checkbox'),
     selectAllLabel = form.find('label.selectAll span.selectAll'),
@@ -5501,7 +5502,7 @@ form.off().submit(function (e) {
 // 测试:
 alert('请测试功能是否正常。');
 </pre>
-<form id="test-form" action="test">
+<form id="test-form6" action="test">
     <legend>请选择想要学习的编程语言：</legend>
     <fieldset>
         <p><label class="selectAll"><input type="checkbox"> <span class="selectAll">全选</span><span class="deselectAll">全不选</span></label> <a href="#0" class="invertSelect">反选</a></p>
@@ -5536,7 +5537,7 @@ div.show('slow'); // 在0.6秒钟内逐渐显示
         <button class="uk-button" onclick="$('#test-show-hide').toggle('slow');">toggle('slow')</button>
     </div>
     <div style="height: 128px;">
-        <div id="test-show-hide" style="width: 128px; height: 128px; background-color: #ccc; background-image: url(/static/img/404.png)"></div>
+        <div id="test-show-hide" style="width: 128px; height: 128px; background-color: #ccc; background-image: url(./files/404.png)"></div>
     </div>
 </div>
 <h4 id="slideup-slidedown">slideUp / slideDown</h4>
@@ -5553,7 +5554,7 @@ div.slideUp(3000); // 在3秒钟内逐渐向上消失
         <button class="uk-button" onclick="$('#test-slide').slideToggle('slow');">slideToggle('slow')</button>
     </div>
     <div style="height: 128px;">
-        <div id="test-slide" style="width: 128px; height: 128px; background-color: #ccc; background-image: url(/static/img/404.png)"></div>
+        <div id="test-slide" style="width: 128px; height: 128px; background-color: #ccc; background-image: url(./files/404.png)"></div>
     </div>
 </div>
 <h4 id="fadein-fadeout">fadeIn / fadeOut</h4>
@@ -5568,7 +5569,7 @@ div.fadeOut('slow'); // 在0.6秒内淡出
         <button class="uk-button" onclick="$('#test-fade').fadeToggle('slow');">fadeToggle('slow')</button>
     </div>
     <div style="height: 128px;">
-        <div id="test-fade" style="width: 128px; height: 128px; background-color: #ccc; background-image: url(/static/img/404.png)"></div>
+        <div id="test-fade" style="width: 128px; height: 128px; background-color: #ccc; background-image: url(./files/404.png)"></div>
     </div>
 </div>
 <h4 id="-">自定义动画</h4>
@@ -5610,7 +5611,7 @@ function customAnimate() {
         <button class="uk-button" onclick="customAnimate();">animate()</button>
     </div>
     <div style="height: 256px;">
-        <div id="test-animate" style="width: 128px; height: 128px; background-color: #ccc; background-image: url(/static/img/404.png); background-repeat: no-repeat; background-position: center center;"></div>
+        <div id="test-animate" style="width: 128px; height: 128px; background-color: #ccc; background-image: url(./files/404.png); background-repeat: no-repeat; background-position: center center;"></div>
     </div>
 </div>
 <h4 id="-">串行动画</h4>
@@ -5655,7 +5656,7 @@ function animates() {
         <button class="uk-button" onclick="animates();">animate</button>
     </div>
     <div style="height: 256px;">
-        <div id="test-animates" style="width: 128px; height: 128px; background-color: #ccc; background-image: url(/static/img/404.png); background-repeat: no-repeat; background-position: center center;"></div>
+        <div id="test-animates" style="width: 128px; height: 128px; background-color: #ccc; background-image: url(./files/404.png); background-repeat: no-repeat; background-position: center center;"></div>
     </div>
 </div>
 <h4 id="-">为什么有的动画没有效果</h4>
